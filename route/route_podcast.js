@@ -45,7 +45,7 @@ route.patch("/:id", async(req, res) => {
 route.delete("/:id", async(req, res) => {
     try{
    let {id} = req.params
-   let blog = await Blog.findByIdAndDelete(id)
+   let vlog = await Blog.findByIdAndDelete(id)
  return res.status(201).json({ message: 'Blog deleted successfully', podcast})
 } catch{
     (error) =>{
