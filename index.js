@@ -9,6 +9,7 @@ app.use(express.json());
 const PORT = process.env.PORT;
 await mongoose.connect(process.env.MONGO_URL);
 
+//routes
 app.use("/blog", route)
 //app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(bodyParser.json());
