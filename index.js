@@ -11,6 +11,8 @@ await mongoose.connect(process.env.MONGO_URL);
 
 //routes
 app.use("/blog", route)
+app.use("/podcast", route)
+app.use("/vlog", route)
 //app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(bodyParser.json());
 
