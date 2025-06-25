@@ -20,7 +20,7 @@ route.post("/", async (req, res) => {
     comments,
   });
   const result = await podcast.save();
- return res.status(201).json({ message: 'Blog created successfully', result })
+ return res.status(201).json({ message: 'podcast created successfully', result })
 } catch{
     (error) =>{
         res.status(500).json({message: `There is an error, unsuccessfull!` });
@@ -34,7 +34,7 @@ route.patch("/:id", async(req, res) => {
     let {id} = req.params
     const { title,podcast_snippet, comments } = req.body;
     let podcast = await Blog.findByIdAndUpdate(id, {title,podcast_snippet,comments})
-    return res.status(201).json({ message: 'Blog updated successfully', podcast})
+    return res.status(201).json({ message: 'podcast updated successfully', podcast})
     } catch{
     (error) =>{
         res.status(500).json({message: `There is an error, unsuccessfull!` });
@@ -46,7 +46,7 @@ route.delete("/:id", async(req, res) => {
     try{
    let {id} = req.params
    let vlog = await Blog.findByIdAndDelete(id)
- return res.status(201).json({ message: 'Blog deleted successfully', podcast})
+ return res.status(201).json({ message: 'podcast deleted successfully', podcast})
 } catch{
     (error) =>{
         res.status(500).json({message: `There is an error, unsuccessfull!` });
