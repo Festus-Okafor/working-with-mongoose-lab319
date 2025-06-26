@@ -4,7 +4,13 @@
  i created three different collections within the database( such as blogs, podcast and vlog). Then using mongodb querry i made efficient querring of the database. I also created MongoDB validation rules and ensured data consistency.
 
 My api available routes includes
+
+
 GET/
+
+
+
+
     GET/api
         GET/api/blog
         POST/api/blog
@@ -23,4 +29,7 @@ GET/
         GET/api/vlog/:id
         PATCH/api/vlog/:id
         DELETE/api/vlog/:id
+
+
+        
 c:\Users\okafo\Downloads\Screenshot 2025-06-20 at 11.46.51 AM.png
