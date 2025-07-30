@@ -1,19 +1,20 @@
 import express from "express";
-import Blog from "../models/blog.js";
+import podCast from "../models/podcast.js";
 
-const route = express.Router()
-route.use(express.json())
 
-route.get("/", async(req, res) => {
-    let podcast = await Blog.find({
+const routePodcast = express.Router()
+routePodcast.use(express.json())
+
+routePodcast.get("/", async(req, res) => {
+    let podcast = await podCast.find({
     })
     res.status(201).json(podcast)
 });
 
-route.post("/", async (req, res) => {
+routePodcast.post("/", async (req, res) => {
     const { podcastname, title, podcast_snippet, comments } = req.body;
     try{
-  const podcast = new Blog({
+  const podcast = new podCast({
     podcastname,
     title,
     podcast_snippet,
@@ -29,11 +30,11 @@ route.post("/", async (req, res) => {
 
 
 
-route.patch("/:id", async(req, res) => {
+routePodcast.patch("/", async(req, res) => {
     try{
     let {id} = req.params
     const { title,podcast_snippet, comments } = req.body;
-    let podcast = await Blog.findByIdAndUpdate(id, {title,podcast_snippet,comments})
+    let podcast = await podCast.findByIdAndUpdate(id, {title,podcast_snippet,comments})
     return res.status(201).json({ message: 'podcast updated successfully', podcast})
     } catch{
     (error) =>{
@@ -42,10 +43,10 @@ route.patch("/:id", async(req, res) => {
 }});
 ;
 
-route.delete("/:id", async(req, res) => {
+routePodcast.delete("/:id", async(req, res) => {
     try{
    let {id} = req.params
-   let vlog = await Blog.findByIdAndDelete(id)
+   let podcast = await podCast.findByIdAndDelete(id)
  return res.status(201).json({ message: 'podcast deleted successfully', podcast})
 } catch{
     (error) =>{
@@ -53,4 +54,4 @@ route.delete("/:id", async(req, res) => {
     }
 }});
 ;
-export default route
+export default routePodcast

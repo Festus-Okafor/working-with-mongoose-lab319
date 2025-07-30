@@ -1,5 +1,5 @@
 import express from "express";
-import Blog from "../models/blog.js";
+import Blog from "../models/blogs.js";
 
 const route = express.Router()
 route.use(express.json())

@@ -18,12 +18,12 @@ const podcastSchema = new schema({
     },
     comments:{
      Type: String,
-     index: true,
+    
      
     }  
  },
   {timestamps: true})
  
- const Blog = mongoose.model('Blog', podcastSchema)
+ const podCast = mongoose.model('Podcast', podcastSchema)
 
- export default Blog
+ export default podCast

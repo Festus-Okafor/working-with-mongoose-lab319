@@ -2,6 +2,8 @@ import express from "express";
 import "dotenv/config";
 import mongoose from "mongoose";
 import route from "./route/route_blog.js"
+import routePodcast from "./route/route_podcast.js"
+import routeVlog from "./route/route_vlog.js"
 //import bodyParser from "body-parser";
 
 const app = express();
@@ -10,9 +12,9 @@ const PORT = process.env.PORT;
 await mongoose.connect(process.env.MONGO_URL);
 
 //routes
-app.use("/blog", route)
-app.use("/podcast", route)
-app.use("/vlog", route)
+app.use("/blogs", route)
+app.use("/podcast", routePodcast)
+app.use("/vlog", routeVlog)
 //app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(bodyParser.json());
 

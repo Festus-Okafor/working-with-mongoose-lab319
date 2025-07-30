@@ -1,19 +1,19 @@
 import express from "express";
-import Blog from "../models/blog.js";
+import Vlog from "../models/vlog.js";
 
-const route = express.Router()
-route.use(express.json())
+const routeVlog = express.Router()
+routeVlog.use(express.json())
 
-route.get("/", async(req, res) => {
-    let vlog = await Blog.find({
+routeVlog.get("/", async(req, res) => {
+    let vlog = await Vlog.find({
     })
     res.status(201).json(vlog)
 });
 
-route.post("/", async (req, res) => {
-    const { vlogname, title, vlogcast_snippet, comments } = req.body;
+routeVlog.post("/", async (req, res) => {
+    const { vlogname, title, vlog_snippet, comments } = req.body;
     try{
-  const vlog = new Blog({
+  const vlog = new Vlog({
     vlogname,
     title,
     vlog_snippet,
@@ -29,12 +29,12 @@ route.post("/", async (req, res) => {
 
 
 
-route.patch("/:id", async(req, res) => {
+routeVlog.patch("/:id", async(req, res) => {
     try{
     let {id} = req.params
     const { title,vlog_snippet, comments } = req.body;
-    let podcast = await Blog.findByIdAndUpdate(id, {title,vlog_snippet,comments})
-    return res.status(201).json({ message: 'vlog updated successfully', podcast})
+    let vlog = await Vlog.findByIdAndUpdate(id, {title,vlog_snippet,comments})
+    return res.status(201).json({ message: 'vlog updated successfully', vlog})
     } catch{
     (error) =>{
         res.status(500).json({message: `There is an error, unsuccessfull!` });
@@ -42,15 +42,15 @@ route.patch("/:id", async(req, res) => {
 }});
 ;
 
-route.delete("/:id", async(req, res) => {
+routeVlog.delete("/:id", async(req, res) => {
     try{
    let {id} = req.params
-   let vlog = await Blog.findByIdAndDelete(id)
- return res.status(201).json({ message: 'vlog deleted successfully', vlog})
+   let vlog = await Vlog.findByIdAndDelete(id)
+   return res.status(201).json({ message: 'vlog deleted successfully', vlog})
 } catch{
     (error) =>{
         res.status(500).json({message: `There is an error, unsuccessfull!` });
     }
 }});
 ;
-export default route
+export default routeVlog

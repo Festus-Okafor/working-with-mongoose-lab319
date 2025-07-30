@@ -11,19 +11,18 @@ const vlogSchema = new schema({
         type: String,
         require: true,
         unique: true,
-        index: true,
+     
     },
     vlog_snippet: {
         type: String,
     },
     comments:{
      Type: String,
-     index: true,
      
     }  
  },
   {timestamps: true})
  
- const Blog = mongoose.model('Blog', vlogSchema)
+ const Vlog = mongoose.model('Vlog', vlogSchema)
 
- export default Blog
+ export default Vlog
