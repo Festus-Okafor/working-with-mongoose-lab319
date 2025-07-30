@@ -24,6 +24,6 @@ const blogSchema = new schema({
  },
   {timestamps: true})
  
- const Blog = mongoose.model('Blog', blogSchema)
+ const Blog = mongoose.model('Blogs', blogSchema)
 
  export default Blog
